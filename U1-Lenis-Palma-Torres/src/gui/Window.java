@@ -8,13 +8,16 @@ import javax.swing.JOptionPane;
 public class Window extends JFrame{
 	
 	private ValuesPanel vPanel;
+	private OptionsPanel oPanel;
 
 	public Window() {
 		
 		setTitle("Sorting");
 		setLayout(new BorderLayout());
-		vPanel = new ValuesPanel(this);
-		add(vPanel);
+		vPanel = new ValuesPanel();
+		oPanel = new OptionsPanel(this);
+		add(vPanel, BorderLayout.CENTER);
+		add(oPanel, BorderLayout.SOUTH);
 		
 		pack();
 		setLocationRelativeTo(null);
