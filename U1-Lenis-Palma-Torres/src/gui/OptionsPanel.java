@@ -1,31 +1,24 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class OptionsPanel extends JPanel implements ActionListener{
 	
 	public static final String ENTER_VALUES = "ENTER";
 	public static final String GENERATE_VALUES = "GENERATE";
-	public static final String EMPTY_VALUES = "EMPTY";
+	public static final String CLEAR_VALUES = "CLEAR";
 	
 	private Window main;
 	private JButton btnEnter;
 	private JButton btnGenerate;
+	private JButton btnClear;
 
 	public OptionsPanel(Window main) {
 		this.main = main;
@@ -37,11 +30,16 @@ public class OptionsPanel extends JPanel implements ActionListener{
 		btnGenerate = new JButton("Generate Values");
 		btnGenerate.setActionCommand(GENERATE_VALUES);
 		btnGenerate.addActionListener(this);
+		
+		btnClear = new JButton("Clear Values");
+		btnClear.setActionCommand(CLEAR_VALUES);
+		btnClear.addActionListener(this);
 
-		setLayout(new GridLayout(1, 2, 10, 5));
+		setLayout(new GridLayout(1, 3, 10, 5));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(btnEnter);
 		add(btnGenerate);
+		add(btnClear);
 
 	}
 
@@ -52,8 +50,8 @@ public class OptionsPanel extends JPanel implements ActionListener{
 			main.enterValues();
 		} else if(e.getActionCommand().equals(GENERATE_VALUES)) {
 			main.generateValues();
-		} else if(e.getActionCommand().equals(EMPTY_VALUES)) {
-			main.emptyValues();
+		} else if(e.getActionCommand().equals(CLEAR_VALUES)) {
+			main.clearValues();
 		} 
 		
 	}

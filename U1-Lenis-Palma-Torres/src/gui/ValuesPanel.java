@@ -22,11 +22,7 @@ public class ValuesPanel extends JPanel{
 		setPreferredSize(new Dimension(500, 300));
 		setLayout(new BorderLayout());
 		
-		String texto = "";
-		for (int i = 1; i < 1001; i++) {
-			texto+= i+" ";
-		}
-		lblValues = new JTextArea(texto);
+		lblValues = new JTextArea("");
 		lblValues.setBorder(new EmptyBorder(5, 5, 5, 5));
 		lblValues.setEditable(false);
 		JScrollPane scroll = new JScrollPane();
