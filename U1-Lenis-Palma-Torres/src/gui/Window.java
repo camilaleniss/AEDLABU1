@@ -62,7 +62,7 @@ public class Window extends JFrame {
 	}
 
 	public void generateValues() {
-		
+
 		try {
 			String strNumber = JOptionPane.showInputDialog(this, "How many values will be generated?");
 			if (strNumber == null) {
@@ -72,13 +72,13 @@ public class Window extends JFrame {
 			if (number < 1) {
 				throw new NumberFormatException();
 			}
-			
+
 			String strMin = JOptionPane.showInputDialog(this, "What is the minimum value?");
 			if (strMin == null) {
 				throw new NullPointerException();
 			}
 			double start = Double.parseDouble(strMin);
-			
+
 			String strMax = JOptionPane.showInputDialog(this, "What is the maximum value?");
 			if (strMax == null) {
 				throw new NullPointerException();
@@ -86,17 +86,56 @@ public class Window extends JFrame {
 			double end = Double.parseDouble(strMax);
 
 			int optRepeated = JOptionPane.showConfirmDialog(this, "Can there be repeated values?");
-			if (optRepeated == JOptionPane.CANCEL_OPTION) {
+			if (optRepeated == JOptionPane.CANCEL_OPTION || optRepeated == -1) {
 				throw new NullPointerException();
 			}
 			boolean repeated = optRepeated == JOptionPane.NO_OPTION;
-			
+
+			String[] options = { "Sorted", "Sorted inversely", "Random order", "Disordered by a percentage" };
+
+			int choice = JOptionPane.showOptionDialog(null, "Choose the configuration of the values.",
+					"Choose an option", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options,
+					options[0]);
+
+			switch (choice) {
+			case 0:
+				clearValues();
+				secuency.generateSorted(number, start, end, repeated);
+				updateList();
+				break;
+			case 1:
+				clearValues();
+				secuency.generateSortedInversely(number, start, end, repeated);
+				updateList();
+				break;
+			case 2:
+				clearValues();
+				secuency.generateRandomValues(number, start, end, repeated);
+				updateList();
+				break;
+			case 3:
+				String strDis = JOptionPane.showInputDialog(this, "What percentage of disorder?");
+				if (strDis == null) {
+					throw new NullPointerException();
+				}
+				double dis = Double.parseDouble(strMin);
+				if(dis < 0 || dis > 100) {
+					throw new NumberFormatException();
+				}
+				clearValues();
+				secuency.generateDisorderedPercentage(number, start, end, repeated, dis);
+				updateList();
+				break;
+			default:
+				throw new NullPointerException();
+			}
+
 			clearValues();
 			secuency.generateRandomValues(number, start, end, repeated);
 			updateList();
 
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(this, "You must enter valid numbers", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "You must enter valid values", "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (NullPointerException e) {
 
 		}
