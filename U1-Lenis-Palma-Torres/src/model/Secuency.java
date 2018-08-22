@@ -162,6 +162,7 @@ public class Secuency {
 			double temp = list.get(i);
 			list.set(i, list.get(i + 1));
 			list.set(i + 1, temp);
+			pairs++;
 		}
 	}
 
