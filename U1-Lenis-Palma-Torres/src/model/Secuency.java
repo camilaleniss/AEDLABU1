@@ -84,7 +84,7 @@ public class Secuency {
 		for (int i = 0; i < number; i++) {
 			double random = new Random().nextDouble();
 			double result = start + (random * (end - start));
-			result = Math.random() > 1 ? result : Math.round(result); // There is a 50% chance that a number is whole
+			result = Math.random() > 0.5 ? result : Math.round(result); // There is a 50% chance that a number is whole
 			if (repeated && list.contains(result)) {
 				i--;
 			} else {
