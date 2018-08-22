@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Secuency {
@@ -87,6 +88,27 @@ public class Secuency {
 				list.add(Math.random() > 0.5? result : Math.round(result));
 			}
 		}
+	}
+	
+	/**
+	 * This method generates a given number of random decimal numbers in a given
+	 * range. These numbers are sorted. There is a 50% chance that a number is
+	 * whole<br>
+	 * <b>Pre:</b> The list != null.<br>
+	 * <b>Post:</b> The values are added to the list.
+	 * 
+	 * @param number
+	 *            The number of values to be generated
+	 * @param start
+	 *            The minimum value
+	 * @param end
+	 *            The maximum value
+	 * @param repeated
+	 *            true if there cannot be repeated values in the list
+	 */
+	public void generateSortedValues(int number, double start, double end, boolean repeated) {
+		generateRandomValues(number, start, end, repeated);
+		Collections.sort(list); //TODO: Implementar metodo propio de ordenamiento
 	}
 
 }

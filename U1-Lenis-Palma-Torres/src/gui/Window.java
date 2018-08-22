@@ -62,7 +62,7 @@ public class Window extends JFrame {
 	}
 
 	public void generateValues() {
-		secuency.generateRandomValues(4, 1, 5, true);
+		secuency.generateRandomValues(10000, 1, 50, true);
 		updateList();
 	}
 
