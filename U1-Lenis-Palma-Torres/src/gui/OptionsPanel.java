@@ -73,8 +73,18 @@ public class OptionsPanel extends JPanel implements ActionListener{
 			main.generateValues();
 		} else if(e.getActionCommand().equals(CLEAR_VALUES)) {
 			main.clearValues();
+		} else if(e.getActionCommand().equals(COUNTING_SORT)) {
+			main.countingSort();
+		} else if(e.getActionCommand().equals(QUICK_SORT)) {
+			main.quickSort();
+		} else if(e.getActionCommand().equals(MERGE_SORT)) {
+			main.mergeSort();
 		} 
 		
+	}
+	
+	public void enableCounting(boolean enable) {
+		btnCounting.setEnabled(enable);
 	}
 
 	

@@ -119,7 +119,7 @@ public class Window extends JFrame {
 					throw new NullPointerException();
 				}
 				double dis = Double.parseDouble(strMin);
-				if(dis < 0 || dis > 100) {
+				if (dis < 0 || dis > 100) {
 					throw new NumberFormatException();
 				}
 				clearValues();
@@ -130,9 +130,6 @@ public class Window extends JFrame {
 				throw new NullPointerException();
 			}
 
-			clearValues();
-			secuency.generateRandomValues(number, start, end, repeated);
-			updateList();
 
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "You must enter valid values", "Error", JOptionPane.ERROR_MESSAGE);
@@ -148,12 +145,40 @@ public class Window extends JFrame {
 
 	public void updateList() {
 		vPanel.setText(secuency.getList());
+		checkSorting();
+	}
+
+	public void checkSorting() {
+		if (secuency.containsDecimals()) {
+			oPanel.enableCounting(false);
+		} else {
+			oPanel.enableCounting(true);
+		}
+	}
+
+	public void countingSort() {
+		long time = secuency.countingSort();
+		showTime(time);		
+		updateList();
+	}
+	
+	public void showTime(long time) {
+		JOptionPane.showMessageDialog(this, "The sorting took "+time+" milliseconds.");
+	}
+
+	public void quickSort() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void mergeSort() {
+		// TODO Auto-generated method stub
+
 	}
 
 	public static void main(String[] args) {
 		Window w = new Window();
 		w.setVisible(true);
-
 	}
 
 }

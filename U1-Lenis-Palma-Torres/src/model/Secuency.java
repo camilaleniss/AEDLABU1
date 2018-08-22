@@ -10,6 +10,7 @@ public class Secuency {
 
 	public Secuency() {
 		list = new ArrayList<Double>();
+
 	}
 
 	public boolean invariantAscendant(double[] list) {
@@ -83,7 +84,7 @@ public class Secuency {
 		for (int i = 0; i < number; i++) {
 			double random = new Random().nextDouble();
 			double result = start + (random * (end - start));
-			result = Math.random() > 0.5 ? result : Math.round(result); // There is a 50% chance that a number is whole
+			result = Math.random() > 1 ? result : Math.round(result); // There is a 50% chance that a number is whole
 			if (repeated && list.contains(result)) {
 				i--;
 			} else {
@@ -157,11 +158,60 @@ public class Secuency {
 		generateSorted(number, start, end, repeated);
 		int k = (int) (list.size() * disorder / 100); // The number of disordered values
 		int pairs = 0;
-		for (int i = 0; i < list.size()-1 && pairs < k / 2; i += 2) {
+		for (int i = 0; i < list.size() - 1 && pairs < k / 2; i += 2) {
 			double temp = list.get(i);
 			list.set(i, list.get(i + 1));
-			list.set(i+1, temp);
+			list.set(i + 1, temp);
 		}
+	}
+
+	/**
+	 * This method checks whether the list contains decimal numbers<br>
+	 * <b>Pre:</b> The list != null.<br>
+	 * 
+	 * @return true if the list contains decimal numbers
+	 */
+	public boolean containsDecimals() {
+		boolean contains = false;
+		for (int i = 0; i < list.size() && !contains; i++) {
+			if (list.get(i) % 1 != 0) {
+				contains = true;
+			}
+		}
+		return contains;
+	}
+
+	public long countingSort() {
+		long time = System.currentTimeMillis();
+		if (list.size() > 0) {
+			int min = (int) Math.floor(list.get(0));
+			int max = (int) Math.floor(list.get(0));
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i) < min) {
+					min = (int) Math.floor(list.get(i));
+				}
+				if (list.get(i) > max) {
+					max = (int) Math.floor(list.get(i));
+				}
+			}
+			int[] aux = new int[max - min + 1];
+
+			for (int i = 0; i < list.size(); i++) {
+				aux[(int) Math.floor(list.get(i)) - min]++;
+			}
+
+			clearList();
+
+			for (int i = 0; i < aux.length; i++) {
+				if (aux[i] > 0) {
+					for (int j = 0; j < aux[i]; j++) {
+						list.add((double) (i + min));
+					}
+				}
+			}
+		}
+
+		return System.currentTimeMillis() - time;
 	}
 
 }
