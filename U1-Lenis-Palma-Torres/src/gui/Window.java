@@ -20,6 +20,7 @@ public class Window extends JFrame {
 
 		setTitle("Sorting");
 		setLayout(new BorderLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		vPanel = new ValuesPanel();
 		oPanel = new OptionsPanel(this);
 		add(vPanel, BorderLayout.CENTER);
@@ -61,7 +62,8 @@ public class Window extends JFrame {
 	}
 
 	public void generateValues() {
-		JOptionPane.showMessageDialog(this, "Generate");
+		secuency.generateRandomValues(4, 1, 5, true);
+		updateList();
 	}
 
 	public void clearValues() {
