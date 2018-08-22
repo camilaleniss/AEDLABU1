@@ -62,9 +62,44 @@ public class Window extends JFrame {
 	}
 
 	public void generateValues() {
-		clearValues();
-		secuency.generateRandomValues(10000, 1, 50, true);
-		updateList();
+		
+		try {
+			String strNumber = JOptionPane.showInputDialog(this, "How many values will be generated?");
+			if (strNumber == null) {
+				throw new NullPointerException();
+			}
+			int number = Integer.parseInt(strNumber);
+			if (number < 1) {
+				throw new NumberFormatException();
+			}
+			
+			String strMin = JOptionPane.showInputDialog(this, "What is the minimum value?");
+			if (strMin == null) {
+				throw new NullPointerException();
+			}
+			double start = Double.parseDouble(strMin);
+			
+			String strMax = JOptionPane.showInputDialog(this, "What is the maximum value?");
+			if (strMax == null) {
+				throw new NullPointerException();
+			}
+			double end = Double.parseDouble(strMax);
+
+			int optRepeated = JOptionPane.showConfirmDialog(this, "Can there be repeated values?");
+			if (optRepeated == JOptionPane.CANCEL_OPTION) {
+				throw new NullPointerException();
+			}
+			boolean repeated = optRepeated == JOptionPane.NO_OPTION;
+			
+			clearValues();
+			secuency.generateRandomValues(number, start, end, repeated);
+			updateList();
+
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "You must enter valid numbers", "Error", JOptionPane.ERROR_MESSAGE);
+		} catch (NullPointerException e) {
+
+		}
 	}
 
 	public void clearValues() {
