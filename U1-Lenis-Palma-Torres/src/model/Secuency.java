@@ -106,9 +106,30 @@ public class Secuency {
 	 * @param repeated
 	 *            true if there cannot be repeated values in the list
 	 */
-	public void generateSortedValues(int number, double start, double end, boolean repeated) {
+	public void generateSorted(int number, double start, double end, boolean repeated) {
 		generateRandomValues(number, start, end, repeated);
 		Collections.sort(list); //TODO: Implementar metodo propio de ordenamiento
+	}
+	
+	/**
+	 * This method generates a given number of random decimal numbers in a given
+	 * range. These numbers are sorted inversely. There is a 50% chance that a number is
+	 * whole<br>
+	 * <b>Pre:</b> The list != null.<br>
+	 * <b>Post:</b> The values are added to the list.
+	 * 
+	 * @param number
+	 *            The number of values to be generated
+	 * @param start
+	 *            The minimum value
+	 * @param end
+	 *            The maximum value
+	 * @param repeated
+	 *            true if there cannot be repeated values in the list
+	 */
+	public void generateSortedInversely(int number, double start, double end, boolean repeated) {
+		generateSorted(number, start, end, repeated);
+		Collections.reverse(list);
 	}
 
 }
