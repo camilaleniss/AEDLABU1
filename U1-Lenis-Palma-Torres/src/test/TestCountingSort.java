@@ -16,10 +16,11 @@ class TestCountingSort {
 	
 	void setUpStage1() {
 		int input = 6;
-		while (input<0) {
+		while (input>0) {
 			secuency.addValue(input);
 			input--;
 		}
+		
 	}
 	
 	void setUpStage2() {
@@ -37,13 +38,13 @@ class TestCountingSort {
 	void setUpStage4() {
 		int input = 5;
 		int var = 5;
-		while (var<0) {
+		while (var>0) {
 			secuency.addValue(input);
 			var--;
 		}
 		input = 1;
 		var = 5;
-		while (var<0) {
+		while (var>0) {
 			secuency.addValue(input);
 			var--;
 		}
@@ -56,30 +57,35 @@ class TestCountingSort {
 	@Test
 	void testStage1() {
 		setUpStage1();
+		secuency.countingSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage2() {
 		setUpStage2();
+		secuency.countingSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage3() {
 		setUpStage3();
+		secuency.countingSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage4() {
 		setUpStage4();
+		secuency.countingSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage5() {
 		setUpStage5();
+		secuency.countingSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 }

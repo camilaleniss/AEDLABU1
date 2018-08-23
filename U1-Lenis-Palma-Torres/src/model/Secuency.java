@@ -15,10 +15,11 @@ public class Secuency {
 	}
 
 	public boolean invariantAscendant() {
-		boolean isOrdered = false;
+		boolean isOrdered = true;
 		int index = 0;
-		while (!isOrdered && index < list.size() - 1) {
+		while (isOrdered && index < list.size() - 1) {
 			isOrdered = list.get(index) <= list.get(index+1) ? true : false;
+			index++;
 		}
 		return isOrdered;
 	}
