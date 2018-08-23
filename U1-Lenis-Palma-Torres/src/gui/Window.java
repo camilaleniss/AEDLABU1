@@ -185,8 +185,9 @@ public class Window extends JFrame {
 	}
 
 	public void mergeSort() {
-		
-
+		long time = secuency.timeMergeSort();
+		showTime(time);
+		updateList();
 	}
 
 	public static void main(String[] args) {

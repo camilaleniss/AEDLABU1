@@ -196,6 +196,8 @@ public class Secuency {
 	/**
 	 * This method sorts the list using the rapid sort algorithm<br>
 	 * <b>Pre:</b> The list != null and all its elements are integers.<br>
+	 * <b>Post:</b> list is sorted in ascendant order.<br>
+	 * @return The time used for the sorting
 	 */
 	public long rapidSort() {
 		long time = System.currentTimeMillis();
@@ -232,14 +234,79 @@ public class Secuency {
 		return System.currentTimeMillis() - time;
 	}
 
-	public long mergeSort() {
+	/**
+	 * This method sorts the list using the merge sort algorithm<br>
+	 * <b>Pre:</b> The list != null and all its elements are integers.<br>
+	 * <b>Post:</b> list is sorted in ascendant order.<br>
+	 * @return The time used for the sorting
+	 */
+	public long timeMergeSort() {
 		long time = System.currentTimeMillis();
+		list = mergeSort(list);
 		return System.currentTimeMillis() - time;
+	}
+
+	/**
+	 * Sorts a list using merge sort
+	 * @param a The list to be sorted. a != null
+	 * @return A sorted permutation of the input list
+	 */
+	public List<Double> mergeSort(List<Double> a) {
+		if (a.size() == 1)
+			return a;
+		List<Double> l1 = new ArrayList<Double>();
+		List<Double> l2 = new ArrayList<Double>();
+
+		for (int i = 0; i < a.size(); i++) {
+			if (i < a.size() / 2) {
+				l1.add(a.get(i));
+			} else {
+				l2.add(a.get(i));
+			}
+		}
+
+		l1 = mergeSort(l1);
+		l2 = mergeSort(l2);
+
+		return merge(l1, l2);
+	}
+
+	/**
+	 * Merges two lists so that the resulting list is sorted in ascendant order
+	 * 
+	 * @param a
+	 *            A list != null
+	 * @param b
+	 *            A list != null
+	 * @return The list that represents the merge of a and b
+	 */
+	public List<Double> merge(List<Double> a, List<Double> b) {
+		List<Double> c = new ArrayList<Double>();
+		while (a.size() > 0 && b.size() > 0) {
+			if (a.get(0) > b.get(0)) {
+				c.add(b.get(0));
+				b.remove(0);
+			} else {
+				c.add(a.get(0));
+				a.remove(0);
+			}
+		}
+		while (a.size() > 0) {
+			c.add(a.get(0));
+			a.remove(0);
+		}
+		while (b.size() > 0) {
+			c.add(b.get(0));
+			b.remove(0);
+		}
+		return c;
 	}
 
 	/**
 	 * This method sorts the list using the counting sort algorithm<br>
 	 * <b>Pre:</b> The list != null and all its elements are integers.<br>
+	 * <b>Post:</b> list is sorted in ascendant order.<br>
+	 * @return The time used for the sorting
 	 */
 	public long countingSort() {
 		long time = System.currentTimeMillis();
@@ -274,7 +341,7 @@ public class Secuency {
 				aux[(int) (list.get(i) - min)]--;
 
 			}
-			
+
 			list.clear();
 			for (int i = 0; i < output.length; i++) {
 				double d = output[i];
