@@ -14,11 +14,11 @@ public class Secuency {
 
 	}
 
-	public boolean invariantAscendant(double[] list) {
+	public boolean invariantAscendant() {
 		boolean isOrdered = false;
 		int index = 0;
-		while (!isOrdered && index < list.length - 1) {
-			isOrdered = list[index] < list[index + 1] ? true : false;
+		while (!isOrdered && index < list.size() - 1) {
+			isOrdered = list.get(index) <= list.get(index+1) ? true : false;
 		}
 		return isOrdered;
 	}
@@ -84,7 +84,7 @@ public class Secuency {
 	 */
 	public void generateRandomValues(int number, double start, double end, boolean repeated, boolean onlyInt) {
 		for (int i = 0; i < number; i++) {
-			double random = new Random().nextDouble();
+			double random = new Random().nextDouble();	
 			double result = start + (random * (end - start));
 			double cons = onlyInt ? 1 : 0.5;
 			result = Math.random() > cons ? result : Math.round(result); //
