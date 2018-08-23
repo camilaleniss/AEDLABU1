@@ -204,7 +204,7 @@ public class Secuency {
 				}
 			}
 			int[] aux = new int[max - min + 1];
-			
+
 			for (int i = 0; i < list.size(); i++) {
 				int value = (int) Math.floor(list.get(i))-min;
 				aux[value]++;
@@ -220,6 +220,7 @@ public class Secuency {
 				}
 			}
 		}
+
 		return System.currentTimeMillis() - time;
 	}
 	
