@@ -2,6 +2,6 @@
 Laboratorio Unidad 1 de Algoritmos y Estructuras de Datos
 
 Integrantes:
-Maria Camila Lenis Restrepo
-Juan Sebastian Palma García
-Javier Andrés Torres Reyes
+<b>Maria Camila Lenis Restrepo<\b>
+<b>Juan Sebastian Palma García<\b>
+<b>Javier Andrés Torres Reyes<\b>
