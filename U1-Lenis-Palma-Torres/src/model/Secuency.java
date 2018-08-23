@@ -4,26 +4,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
+/**
+ * Secuency class is resposible for handing the sort and generate fuctions of the program using a List
+ * @author Maria Camila Lenis, Juan Sebastian Palma and Javier Andres Torres
+ *
+ */
 public class Secuency {
-
+	/**
+	 * The list where all the values we have to sort will be stored
+	 */
 	private List<Double> list;
-
+	/**
+	 * The constructor of a Secuency object
+	 * <b>post:</b>list have been initialized and is empty<br>
+	 */
 	public Secuency() {
 		list = new ArrayList<Double>();
 
 	}
-
-	public boolean invariantAscendant() {
-		boolean isOrdered = true;
-		int index = 0;
-		while (isOrdered && index < list.size() - 1) {
-			isOrdered = list.get(index) <= list.get(index+1) ? true : false;
-			index++;
-		}
-		return isOrdered;
-	}
-
+	
 	/**
 	 * Removes all the elements from the list.<br>
 	 * <b>Pre:</b> The list != null.<br>
@@ -36,7 +35,6 @@ public class Secuency {
 	/**
 	 * Creates a text string that contains each number in the list.<br>
 	 * <b>Pre:</b> The list != null.<br>
-	 * 
 	 * @return A text string that contains each number in the list, separated by a
 	 *         space and a slash.
 	 */
@@ -234,5 +232,21 @@ public class Secuency {
 		long time = System.currentTimeMillis();
 		return System.currentTimeMillis();
 	}
+	/**
+	 * This method checks is the order of the item in List are sorted in an ascendant order. 
+	 * <b>pre:</b>List have been initialized<br>
+	 * <b>post:</b>List have been checked<br>
+	 * @return true: if the list is sorted, false: if the list is not sorted
+	 */
+	public boolean invariantAscendant() {
+		boolean isOrdered = true;
+		int index = 0;
+		while (isOrdered && index < list.size() - 1) {
+			isOrdered = list.get(index) <= list.get(index+1) ? true : false;
+			index++;
+		}
+		return isOrdered;
+	}
+
 	
 }

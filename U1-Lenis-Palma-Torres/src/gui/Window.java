@@ -177,12 +177,11 @@ public class Window extends JFrame {
 	}
 
 	public void quickSort() {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void mergeSort() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
