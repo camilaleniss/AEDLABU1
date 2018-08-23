@@ -354,8 +354,8 @@ public class Secuency {
 
 	/**
 	 * This method checks is the order of the item in List are sorted in an
-	 * ascendant order. <b>pre:</b>List have been initialized<br>
-	 * <b>post:</b>List have been checked<br>
+	 * ascendant order. <b>pre:</b>List has been initialized<br>
+	 * <b>post:</b>List has been checked<br>
 	 * 
 	 * @return true: if the list is sorted, false: if the list is not sorted
 	 */

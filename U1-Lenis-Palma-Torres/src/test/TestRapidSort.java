@@ -34,7 +34,7 @@ class TestRapidSort {
 		}
 	}
 	
-	//Lista = {5.1, 5.35, 5.6, 5.2, 5.9, 1.1, 1.5, 1.6, 1.9}
+	//List = {5.1, 5.35, 5.6, 5.2, 5.9, 1.1, 1.5, 1.6, 1.9}
 	void setUpStage4(){
 		secuency.addValue(5.1);
 		secuency.addValue(5.35);
