@@ -222,5 +222,16 @@ public class Secuency {
 		}
 		return System.currentTimeMillis() - time;
 	}
-
+	
+	public long mergeSort() {
+		long time = System.currentTimeMillis();
+		return System.currentTimeMillis();
+	}
+	
+	//FOR NOW, THIS ALGORITHM CAN CHANGE
+	public long bucketSort() {
+		long time = System.currentTimeMillis();
+		return System.currentTimeMillis();
+	}
+	
 }
