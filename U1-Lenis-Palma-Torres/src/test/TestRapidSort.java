@@ -1,14 +1,16 @@
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
+
 import model.Secuency;
 
-class TestMergeSort {
-	
+class TestRapidSort {
+
 	private Secuency secuency;
 	
-	TestMergeSort(){
+	TestRapidSort(){
 		secuency = new Secuency();
 	}
 	
@@ -53,46 +55,47 @@ class TestMergeSort {
 		secuency.generateRandomValues(20, -10, 10, false, false);
 	}
 	
+	
 	@Test
 	void testStage1() {
 		setUpStage1();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage2() {
 		setUpStage2();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage3() {
 		setUpStage3();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage4() {
 		setUpStage4();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage5() {
 		setUpStage5();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
 	
 	@Test
 	void testStage6() {
 		setUpStage6();
-		secuency.timeMergeSort();
+		secuency.rapidSort();
 		assertTrue(secuency.invariantAscendant());
 	}
-
+	
 }
