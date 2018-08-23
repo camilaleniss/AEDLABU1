@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
 /**
- * Secuency class is resposible for handing the sort and generate fuctions of the program using a List
+ * Secuency class is resposible for handing the sort and generate fuctions of
+ * the program using a List
+ * 
  * @author Maria Camila Lenis, Juan Sebastian Palma and Javier Andres Torres
  *
  */
@@ -14,15 +17,16 @@ public class Secuency {
 	 * The list where all the values we have to sort will be stored
 	 */
 	private List<Double> list;
+
 	/**
-	 * The constructor of a Secuency object
-	 * <b>post:</b>list have been initialized and is empty<br>
+	 * The constructor of a Secuency object <b>post:</b>list have been initialized
+	 * and is empty<br>
 	 */
 	public Secuency() {
 		list = new ArrayList<Double>();
 
 	}
-	
+
 	/**
 	 * Removes all the elements from the list.<br>
 	 * <b>Pre:</b> The list != null.<br>
@@ -35,6 +39,7 @@ public class Secuency {
 	/**
 	 * Creates a text string that contains each number in the list.<br>
 	 * <b>Pre:</b> The list != null.<br>
+	 * 
 	 * @return A text string that contains each number in the list, separated by a
 	 *         space and a slash.
 	 */
@@ -83,7 +88,7 @@ public class Secuency {
 	 */
 	public void generateRandomValues(int number, double start, double end, boolean repeated, boolean onlyInt) {
 		for (int i = 0; i < number; i++) {
-			double random = new Random().nextDouble();	
+			double random = new Random().nextDouble();
 			double result = start + (random * (end - start));
 			double cons = onlyInt ? 1 : 0.5;
 			result = Math.random() > cons ? result : Math.round(result); //
@@ -208,49 +213,93 @@ public class Secuency {
 			int[] aux = new int[max - min + 1];
 
 			for (int i = 0; i < list.size(); i++) {
-				int value = (int) Math.floor(list.get(i))-min;
+				int value = (int) Math.floor(list.get(i)) - min;
 				aux[value]++;
 			}
 
-			clearList();
+			List<Double> output = new ArrayList<Double>();
 
 			for (int i = 0; i < aux.length; i++) {
 				if (aux[i] > 0) {
 					for (int j = 0; j < aux[i]; j++) {
-						list.add((double) (i + min));
+						output.add((double) (i + min));
 					}
 				}
+			}
+			list = output;
+		}
+
+		return System.currentTimeMillis() - time;
+	}
+
+	public long mergeSort() {
+		long time = System.currentTimeMillis();
+		return System.currentTimeMillis() - time;
+	}
+
+	/**
+	 * This method sorts the list using the counting sort algorithm<br>
+	 * <b>Pre:</b> The list != null and all its elements are integers.<br>
+	 */
+	public long countingSort() {
+		long time = System.currentTimeMillis();
+		if (list.size() > 0) {
+			int min = (int) Math.floor(list.get(0));
+			int max = min;
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i) < min) {
+					min = (int) Math.floor(list.get(i));
+				}
+				if (list.get(i) > max) {
+					max = (int) Math.floor(list.get(i));
+				}
+			}
+			int[] aux = new int[max - min + 1];
+
+			for (int i = 0; i < list.size(); i++) {
+				int value = (int) Math.floor(list.get(i)) - min;
+				aux[value]++;
+			}
+
+			int sum = 0;
+			for (int i = 0; i < aux.length; i++) {
+				sum += aux[i];
+				aux[i] = sum;
+			}
+
+			double[] output = new double[list.size()];
+			for (int i = list.size() - 1; i >= 0; i--) {
+				int index = aux[(int) (list.get(i) - min)];
+				output[index - 1] = list.get(i);
+				aux[(int) (list.get(i) - min)]--;
+
+			}
+			
+			list.clear();
+			for (int i = 0; i < output.length; i++) {
+				double d = output[i];
+				list.add(d);
 			}
 		}
 
 		return System.currentTimeMillis() - time;
 	}
-	
-	public long mergeSort() {
-		long time = System.currentTimeMillis();
-		return System.currentTimeMillis()-time;
-	}
-	
-	//FOR NOW, THIS ALGORITHM CAN CHANGE
-	public long bucketSort() {
-		long time = System.currentTimeMillis();
-		return System.currentTimeMillis()-time;
-	}
+
 	/**
-	 * This method checks is the order of the item in List are sorted in an ascendant order. 
-	 * <b>pre:</b>List have been initialized<br>
+	 * This method checks is the order of the item in List are sorted in an
+	 * ascendant order. <b>pre:</b>List have been initialized<br>
 	 * <b>post:</b>List have been checked<br>
+	 * 
 	 * @return true: if the list is sorted, false: if the list is not sorted
 	 */
 	public boolean invariantAscendant() {
 		boolean isOrdered = true;
 		int index = 0;
 		while (isOrdered && index < list.size() - 1) {
-			isOrdered = list.get(index) <= list.get(index+1) ? true : false;
+			isOrdered = list.get(index) <= list.get(index + 1) ? true : false;
 			index++;
 		}
 		return isOrdered;
 	}
 
-	
 }

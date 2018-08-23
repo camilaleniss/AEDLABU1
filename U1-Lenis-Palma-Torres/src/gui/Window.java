@@ -86,8 +86,8 @@ public class Window extends JFrame {
 			double end = Double.parseDouble(strMax);
 
 			int optRepeated = JOptionPane.showConfirmDialog(this,
-					"Can there be repeated values? \n (Choose no only if the max value is "
-					+"greater than or equal to the number of elements");
+					"Can there be repeated values? \n (Choose no only if the max value minus the min value is "
+					+"greater than or equal to the number of elements)");
 			if (optRepeated == JOptionPane.CANCEL_OPTION || optRepeated == -1) {
 				throw new NullPointerException();
 			} if(optRepeated == JOptionPane.NO_OPTION && end<number) {
@@ -179,7 +179,9 @@ public class Window extends JFrame {
 	}
 
 	public void countingSort() {
-
+		long time = secuency.countingSort();
+		showTime(time);
+		updateList();
 	}
 
 	public void mergeSort() {
