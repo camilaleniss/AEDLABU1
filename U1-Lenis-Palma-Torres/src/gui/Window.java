@@ -94,6 +94,13 @@ public class Window extends JFrame {
 				throw new NumberFormatException();
 			}
 			boolean repeated = optRepeated == JOptionPane.NO_OPTION;
+			
+			int optInt = JOptionPane.showConfirmDialog(this,
+					"Can there be non-integer values?");
+			if (optRepeated == JOptionPane.CANCEL_OPTION || optRepeated == -1) {
+				throw new NullPointerException();
+			} 
+			boolean onlyInt = optRepeated == JOptionPane.NO_OPTION;
 
 			String[] options = { "Sorted", "Sorted inversely", "Random order", "Disordered by a percentage" };
 
@@ -104,17 +111,17 @@ public class Window extends JFrame {
 			switch (choice) {
 			case 0:
 				clearValues();
-				secuency.generateSorted(number, start, end, repeated);
+				secuency.generateSorted(number, start, end, repeated, onlyInt);
 				updateList();
 				break;
 			case 1:
 				clearValues();
-				secuency.generateSortedInversely(number, start, end, repeated);
+				secuency.generateSortedInversely(number, start, end, repeated, onlyInt);
 				updateList();
 				break;
 			case 2:
 				clearValues();
-				secuency.generateRandomValues(number, start, end, repeated);
+				secuency.generateRandomValues(number, start, end, repeated, onlyInt);
 				updateList();
 				break;
 			case 3:
@@ -127,7 +134,7 @@ public class Window extends JFrame {
 					throw new NumberFormatException();
 				}
 				clearValues();
-				secuency.generateDisorderedPercentage(number, start, end, repeated, dis);
+				secuency.generateDisorderedPercentage(number, start, end, repeated, dis, onlyInt);
 				updateList();
 				break;
 			default:
