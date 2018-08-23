@@ -16,7 +16,7 @@ public class OptionsPanel extends JPanel implements ActionListener{
 	public static final String CLEAR_VALUES = "CLEAR";
 	public static final String COUNTING_SORT = "COUNTING";
 	public static final String MERGE_SORT = "MERGE";
-	public static final String QUICK_SORT = "QUICK";
+	public static final String RAPID_SORT = "RAPID";
 	
 	private Window main;
 	private JButton btnEnter;
@@ -24,7 +24,7 @@ public class OptionsPanel extends JPanel implements ActionListener{
 	private JButton btnClear;
 	private JButton btnCounting;
 	private JButton btnMerge;
-	private JButton btnQuick;
+	private JButton btnRapid;
 
 	public OptionsPanel(Window main) {
 		this.main = main;
@@ -49,9 +49,9 @@ public class OptionsPanel extends JPanel implements ActionListener{
 		btnMerge.setActionCommand(MERGE_SORT);
 		btnMerge.addActionListener(this);
 		
-		btnQuick = new JButton("Quick Sort");
-		btnQuick.setActionCommand(QUICK_SORT);
-		btnQuick.addActionListener(this);
+		btnRapid = new JButton("Rapid Sort");
+		btnRapid.setActionCommand(RAPID_SORT);
+		btnRapid.addActionListener(this);
 
 		setLayout(new GridLayout(2, 3, 10, 5));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,7 +60,7 @@ public class OptionsPanel extends JPanel implements ActionListener{
 		add(btnClear);
 		add(btnCounting);
 		add(btnMerge);
-		add(btnQuick);
+		add(btnRapid);
 
 	}
 
@@ -75,8 +75,8 @@ public class OptionsPanel extends JPanel implements ActionListener{
 			main.clearValues();
 		} else if(e.getActionCommand().equals(COUNTING_SORT)) {
 			main.countingSort();
-		} else if(e.getActionCommand().equals(QUICK_SORT)) {
-			main.quickSort();
+		} else if(e.getActionCommand().equals(RAPID_SORT)) {
+			main.rapidSort();
 		} else if(e.getActionCommand().equals(MERGE_SORT)) {
 			main.mergeSort();
 		} 
@@ -85,6 +85,10 @@ public class OptionsPanel extends JPanel implements ActionListener{
 	
 	public void enableCounting(boolean enable) {
 		btnCounting.setEnabled(enable);
+	}
+	
+	public void enableRapid(boolean enable) {
+		btnRapid.setEnabled(enable);
 	}
 
 	

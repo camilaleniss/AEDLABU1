@@ -188,7 +188,11 @@ public class Secuency {
 		return contains;
 	}
 
-	public long countingSort() {
+	/**
+	 * This method sorts the list using the rapid sort algorithm<br>
+	 * <b>Pre:</b> The list != null and all its elements are integers.<br>
+	 */
+	public long rapidSort() {
 		long time = System.currentTimeMillis();
 		if (list.size() > 0) {
 			int min = (int) Math.floor(list.get(0));
@@ -224,13 +228,13 @@ public class Secuency {
 	
 	public long mergeSort() {
 		long time = System.currentTimeMillis();
-		return System.currentTimeMillis();
+		return System.currentTimeMillis()-time;
 	}
 	
 	//FOR NOW, THIS ALGORITHM CAN CHANGE
 	public long bucketSort() {
 		long time = System.currentTimeMillis();
-		return System.currentTimeMillis();
+		return System.currentTimeMillis()-time;
 	}
 	/**
 	 * This method checks is the order of the item in List are sorted in an ascendant order. 

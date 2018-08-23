@@ -97,10 +97,10 @@ public class Window extends JFrame {
 			
 			int optInt = JOptionPane.showConfirmDialog(this,
 					"Can there be non-integer values?");
-			if (optRepeated == JOptionPane.CANCEL_OPTION || optRepeated == -1) {
+			if (optInt == JOptionPane.CANCEL_OPTION || optInt == -1) {
 				throw new NullPointerException();
 			} 
-			boolean onlyInt = optRepeated == JOptionPane.NO_OPTION;
+			boolean onlyInt = optInt == JOptionPane.NO_OPTION;
 
 			String[] options = { "Sorted", "Sorted inversely", "Random order", "Disordered by a percentage" };
 
@@ -161,13 +161,15 @@ public class Window extends JFrame {
 	public void checkSorting() {
 		if (secuency.containsDecimals()) {
 			oPanel.enableCounting(false);
+			oPanel.enableRapid(false);
 		} else {
 			oPanel.enableCounting(true);
+			oPanel.enableRapid(true);
 		}
 	}
 
-	public void countingSort() {
-		long time = secuency.countingSort();
+	public void rapidSort() {
+		long time = secuency.rapidSort();
 		showTime(time);
 		updateList();
 	}
@@ -176,7 +178,7 @@ public class Window extends JFrame {
 		JOptionPane.showMessageDialog(this, "The sorting took " + time + " milliseconds.");
 	}
 
-	public void quickSort() {
+	public void countingSort() {
 
 	}
 
