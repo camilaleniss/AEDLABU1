@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMergeSort" project="U1-Lenis-Palma-Torres" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TestMergeSort" time="0.0" displayname="TestMergeSort" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]">
+    <testcase name="testStage1" classname="test.TestMergeSort" time="0.0" displayname="testStage1()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage1()]"/>
+    <testcase name="testStage2" classname="test.TestMergeSort" time="0.0" displayname="testStage2()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage2()]"/>
+    <testcase name="testStage3" classname="test.TestMergeSort" time="0.0" displayname="testStage3()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage3()]"/>
+    <testcase name="testStage4" classname="test.TestMergeSort" time="0.0" displayname="testStage4()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage4()]"/>
+    <testcase name="testStage5" classname="test.TestMergeSort" time="0.0" displayname="testStage5()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage5()]"/>
+    <testcase name="testStage6" classname="test.TestMergeSort" time="0.0" displayname="testStage6()" uniqueid="[engine:junit-jupiter]/[class:test.TestMergeSort]/[method:testStage6()]"/>
+  </testsuite>
+</testrun>

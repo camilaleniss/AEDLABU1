@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestRapidSort" project="U1-Lenis-Palma-Torres" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="test.TestRapidSort" time="0.047" displayname="TestRapidSort" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]">
+    <testcase name="testStage1" classname="test.TestRapidSort" time="0.016" displayname="testStage1()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage1()]"/>
+    <testcase name="testStage2" classname="test.TestRapidSort" time="0.0" displayname="testStage2()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage2()]"/>
+    <testcase name="testStage3" classname="test.TestRapidSort" time="0.015" displayname="testStage3()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage3()]"/>
+    <testcase name="testStage4" classname="test.TestRapidSort" time="0.0" displayname="testStage4()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage4()]"/>
+    <testcase name="testStage5" classname="test.TestRapidSort" time="0.0" displayname="testStage5()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage5()]"/>
+    <testcase name="testStage6" classname="test.TestRapidSort" time="0.016" displayname="testStage6()" uniqueid="[engine:junit-jupiter]/[class:test.TestRapidSort]/[method:testStage6()]"/>
+  </testsuite>
+</testrun>

@@ -20,7 +20,6 @@ class TestCountingSort {
 			secuency.addValue(input);
 			input--;
 		}
-		
 	}
 	
 	void setUpStage2() {
